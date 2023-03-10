@@ -23,7 +23,9 @@ Use python >=3.7,<3.10
 
 To install in a virtual environment:
 
-```mkdir /home/user/.venvs/
+```
+#Set up virtual environment
+mkdir /home/user/.venvs/
 
 module load python/3.7.4
 
@@ -37,6 +39,7 @@ mkdir ~/tmp
 
 export TMPDIR=~/tmp
 
+#Install deduce
 cd /home/user/.venvs/deduce
 
 source /home/user/.venvs/deduce/bin/activate
@@ -45,10 +48,12 @@ module load python/3.7.4
 
 git clone git@github.com:slimsuite/deduce.git
 
+#Move to makefile and make install
 cd /home/user/.venvs/deduce/deduce
 
 make install
 
+#Copy C++ code and give your user permissions
 cp /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts $HOME/bin
 
 chmod ugo+rwx /home/user/bin/jf_bit_counts
