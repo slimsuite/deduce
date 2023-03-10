@@ -70,13 +70,15 @@ DedUCE requires the following external tools to be installed and available in yo
 
 - `jellyfish` **>=2.3.0** (https://github.com/gmarcais/Jellyfish)
 - samtools **>= 1.13**
-- Either `minimap2` (https://github.com/lh3/minimap2) or `bowtie2` (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+- Either `minimap2` **2.17** (https://github.com/lh3/minimap2) or `bowtie2` **2.3.5.1** (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 
-Include the following lines in your job script:
+Include the following lines in your job script to load modules if available:
 
 ```bash
 module load bowtie/2.3.5.1
 module load minimap2/2.17
+module load jellyfish/2.3.0
+module load samtools/1.13
 ```
 
 #### Manual compilation
@@ -100,6 +102,19 @@ cd jellyfish-2.3.0/
 ./configure --prefix=$HOME
 make -j 4
 make install
+
+# Minimap
+wget https://github.com/lh3/minimap2/archive/refs/tags/v2.17.tar.gz
+tar -xzvf v2.17.tar.gz.2
+cd minimap2-2.17/
+make -j 4
+cp minimap2 $HOME/bin
+
+# Bowtie2
+wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.5.1/bowtie2-2.5.1-linux-x86_64.zip
+unzip bowtie2-2.5.1-linux-x86_64.zip
+cd bowtie2-2.5.1-linux-x86_64/
+cp bowtie2 $HOME/bin
 ```
 
 To make them visible in your job scripts, add the line:
