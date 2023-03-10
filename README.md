@@ -23,7 +23,7 @@ Use python >=3.7,<3.10
 
 To install in a virtual environment:
 
-'''mkdir /home/user/.venvs/
+```mkdir /home/user/.venvs/
 
 module load python/3.7.4
 
@@ -53,7 +53,8 @@ cp /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts $HOME/bin
 
 chmod ugo+rwx /home/user/bin/jf_bit_counts
 
-chmod ugo+rwx /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts'''
+chmod ugo+rwx /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts
+```
 
 
 **Important:** the tool relies on some C++ code located at `cpp/jf_bit_counts`. Install in your home directory with `cp /path/to/deduce/cpp/jf_bit_counts $HOME/bin`.
