@@ -19,7 +19,7 @@ make install
 
 The tool will then be available as `deduce`. I recommend doing the installation in a virtual environment.
 
-Use python >=3.7,<3.10
+Use python 3.8.X (any 3.8)
 
 To install in a virtual environment:
 
@@ -27,7 +27,7 @@ To install in a virtual environment:
 # Set up virtual environment
 mkdir /home/user/.venvs/
 
-module load python/3.7.4
+module load python/3.8.X
 
 python3 -m venv /home/user/.venvs/deduce
 
@@ -44,7 +44,7 @@ cd /home/user/.venvs/deduce
 
 source /home/user/.venvs/deduce/bin/activate
 
-module load python/3.7.4
+module load python/3.8.X
 
 git clone git@github.com:slimsuite/deduce.git
 
