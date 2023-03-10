@@ -22,22 +22,39 @@ The tool will then be available as `deduce`. I recommend doing the installation 
 Use python >=3.7,<3.10
 
 To install in a virtual environment:
+
 mkdir /home/user/.venvs/
+
 module load python/3.7.4
+
 python3 -m venv /home/user/.venvs/deduce
+
 source /home/user/.venvs/deduce/bin/activate
+
 python3 -m pip install flit
+
 mkdir ~/tmp
+
 export TMPDIR=~/tmp
+
 cd /home/user/.venvs/deduce
+
 source /home/user/.venvs/deduce/bin/activate
+
 module load python/3.7.4
+
 git clone git@github.com:slimsuite/deduce.git
+
 cd /home/user/.venvs/deduce/deduce
+
 make install
+
 cp /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts $HOME/bin
+
 chmod ugo+rwx /home/user/bin/jf_bit_counts
+
 chmod ugo+rwx /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts
+
 
 **Important:** the tool relies on some C++ code located at `cpp/jf_bit_counts`. Install in your home directory with `cp /path/to/deduce/cpp/jf_bit_counts $HOME/bin`.
 
