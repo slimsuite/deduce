@@ -13,13 +13,33 @@ python3 -m pip install flit
 Then you can install dedUCE locally by:
 
 ```bash
-git clone git@github.com:unsw-edu-au/deduce.git
+git clone git@github.com:slimsuite/deduce.git
 make install
 ```
 
 The tool will then be available as `deduce`. I recommend doing the installation in a virtual environment.
 
-**Important:** the tool now relies on some C++ code, which I've compiled for Katana at `cpp/jf_bit_counts`. Install in your home directory with `cp /path/to/deduce/cpp/jf_bit_counts $HOME/bin`.
+Use python >=3.7,<3.10
+
+To install in a virtual environment:
+mkdir /home/user/.venvs/
+module load python/3.7.4
+python3 -m venv /home/user/.venvs/deduce
+source /home/user/.venvs/deduce/bin/activate
+python3 -m pip install flit
+mkdir ~/tmp
+export TMPDIR=~/tmp
+cd /home/user/.venvs/deduce
+source /home/user/.venvs/deduce/bin/activate
+module load python/3.7.4
+git clone git@github.com:slimsuite/deduce.git
+cd /home/user/.venvs/deduce/deduce
+make install
+cp /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts $HOME/bin
+chmod ugo+rwx /home/user/bin/jf_bit_counts
+chmod ugo+rwx /home/user/.venvs/deduce/deduce/cpp/jf_bit_counts
+
+**Important:** the tool relies on some C++ code located at `cpp/jf_bit_counts`. Install in your home directory with `cp /path/to/deduce/cpp/jf_bit_counts $HOME/bin`.
 
 ### External dependencies
 
@@ -38,7 +58,7 @@ module load minimap2/2.17
 
 #### Manual compilation
 
-Unfortunately, the versions of `jellyfish` and `samtools` on Katana are too old. While we wait for the service desk to update them, you will need to compile them yourself. The following commands will install them in `$HOME/bin`:
+Compile samtools and jellyfish. The following commands will install them in `$HOME/bin`:
 
 ```bash
 # SAMtools
